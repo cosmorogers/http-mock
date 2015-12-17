@@ -88,6 +88,8 @@ class RequestCollectionFacade
         $request = RequestFactory::getInstance()->fromMessage($requestInfo['request']);
         $params = $this->configureRequest($request, $requestInfo['server']);
 
+        $request->addPostFields( $requestInfo['post'] );
+
         return new UnifiedRequest($request, $params);
     }
 

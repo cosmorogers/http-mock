@@ -139,7 +139,7 @@ $app->error(
             append(
                 $request,
                 'requests',
-                serialize(['server' => $request->server->all(), 'request' => (string) $request])
+                serialize(['server' => $request->server->all(), 'request' => (string) $request, 'post' => $request->request->all()])
             );
 
             $notFoundResponse = new Response('No matching expectation found', 404);
